@@ -1,0 +1,38 @@
+.carousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://media.istockphoto.com/id/1176797580/vi/vec-to/h%C3%ACnh-n%E1%BB%81n-ngang-l%E1%BA%A5p-l%C3%A1nh-m%C3%A0u-h%E1%BB%93ng-v%C3%A0-tr%E1%BA%AFng-m%E1%BB%81m-m%E1%BA%A1i-n%E1%BB%81n-c%E1%BB%95-phi%E1%BA%BFu-m%C3%A0u-tr%E1%BA%AFng-m%C3%B9a-%C4%91%C3%B4ng-v%C3%A0-h%E1%BB%93ng.jpg?s=170667a&w=0&k=20&c=SBmevG8z6qgVIr_wsQJzaQNlWC6WG9ZC1gMiOJts6oE=");
+}
+
+header a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+header a img {
+    height: 90px;
+}
+.search-box{
+    padding: 30px 0;
+}
+.input-search input {
+    padding-left: 30px;
+}
+
+.input-search .icon-search {
+    display: inline-block;
+    left: 8px;
+    transform: rotateY(180deg);
+    top: 8px;
+}
+.btn-search{
+    margin-left: 5px;
+}
+
