@@ -1,3 +1,7 @@
 <header>
-    <a href="#"><img src="https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/logo-dep-12.jpg" alt=""></a>
+    <div class="container">
+        <a href="{{url('/')}}">
+            <img src="{{imagePath(config('general.logo'))}}" alt="Logo">
+        </a>
+    </div>
 </header>

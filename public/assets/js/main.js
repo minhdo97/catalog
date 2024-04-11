@@ -10,12 +10,18 @@ $(document).ready(function () {
         // centerMode: true,
         responsive: [
             {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+
+                }
+            },
+            {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 4,
-                    infinite: true,
-                    dots: true
                 }
             },
             {
@@ -38,42 +44,43 @@ $(document).ready(function () {
     $('.categories_slick').slick({
         dots: true,
         infinite: false,
-        speed: 500, adaptiveHeight: true,
-        slidesToShow: 4, arrows: false,
+        speed: 500,
+        adaptiveHeight: true,
+        slidesToShow: 6,
+        arrows: false,
         slidesToScroll: 4,
-        // centerPadding: "50px",
-        // centerMode: true,
         responsive: [
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 8,
+                    slidesToScroll: 4,
+                }
+            },
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 6,
-                    slidesToScroll: 6,
-                    // infinite: true,
-                    // dots: true
+                    slidesToScroll: 4,
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 5
+                    slidesToShow: 4,
+                    slidesToScroll: 3
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4
+                    slidesToShow: 3,
+                    slidesToScroll: 2
                 }
             }
         ]
     });
 
-    // // slick light gallery
-    // $('.slick').lightGallery({
-    //     selector: '.slick-slide:not(.slick-cloned) .lightgallery',
-    // });
     lightGallery(document.getElementById('lightgallery'), {
         selector: '.lightgallery',
     })

@@ -81,14 +81,21 @@ class ProductController extends Controller
     protected function grid()
     {
         $grid = new Grid(new Product);
-
+        $grid->model()->latest();
         $grid->id('ID');
         $grid->name('name');
         $grid->slug('slug');
-        $grid->body('body');
-        $grid->column('category.name', 'Loai');
-        $grid->column('picture')->image();
-        $grid->column('pictures')->image();
+//        $grid->body('body');
+        $grid->column('category.name', 'Loại sản phẩm');
+        $grid->column('picture', 'Hình ảnh')->image();
+
+        $states = [
+            'on' => ['value' => 1, 'text' => 'Có', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => 'Không', 'color' => 'danger'],
+        ];
+
+        $grid->column('hot_sell', 'Nổi bật')->switch($states);
+
         $grid->created_at(trans('admin.created_at'));
         $grid->updated_at(trans('admin.updated_at'));
 
@@ -111,7 +118,7 @@ class ProductController extends Controller
         $show->desciption('desciption');
         $show->body('body');
         $show->picture('picture');
-        $show->pictures('pictures');
+//        $show->pictures('pictures');
         $show->created_at(trans('admin.created_at'));
         $show->updated_at(trans('admin.updated_at'));
 
@@ -129,15 +136,16 @@ class ProductController extends Controller
 
         $form->display('ID');
         $form->text('name', 'name');
+        $states = [
+            'on' => ['value' => 1, 'text' => 'Có', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => 'Không', 'color' => 'danger'],
+        ];
 
+        $form->switch('hot_sell', "Nổi bật")->states($states);
         $form->textarea('desciption', 'desciption');
         $form->ckeditor('body', 'body');
-        $form->image('picture', trans('admin.picture'))->removable()->thumbnail([
-            'small' => [100, 100],
-            'small-x' => [200, 200],
-            'small-xl' => [300, 300],
-        ]);
-        $form->multipleImage('pictures', trans('admin.pictures'));
+        $form->image('picture', trans('admin.picture'))->removable()->thumbnail('square', $width = 500, $height = 500);
+//        $form->multipleImage('pictures', trans('admin.pictures'));
         $form->select("product_category_id", "Loại sản phẩm")->options(ProductCategory::all()->pluck('name', 'id')->toArray())->required();
         $form->display(trans('admin.created_at'));
         $form->display(trans('admin.updated_at'));

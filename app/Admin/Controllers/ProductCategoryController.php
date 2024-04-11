@@ -80,7 +80,7 @@ class ProductCategoryController extends Controller
     protected function grid()
     {
         $grid = new Grid(new ProductCategory);
-
+        $grid->model()->latest();
         $grid->id('ID');
         $grid->name(trans('admin.name'));
         $grid->column('picture',trans('admin.picture'))->image(null, 70);
@@ -128,7 +128,7 @@ class ProductCategoryController extends Controller
 
         $form->display('ID');
         $form->text('name', trans('admin.name'));
-        $form->image('picture', trans('admin.picture'));
+        $form->image('picture', trans('admin.picture'))->thumbnail('square', $width = 500, $height = 500);
 //        $form->text('slug', 'slug');
         $form->textarea('description', trans('admin.description'));
         $form->display(trans('admin.created_at'));

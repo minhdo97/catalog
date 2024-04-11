@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $q = trim(\request('q'));
+
+        $sliders = Slider::latest()->get();
+
+        $categories = ProductCategory::latest()->get();
+
+        $products = Product::latest()->when($q, function ($query) use ($q) {
+            $query->where('name', "LIKE", "%$q%");
+        })->get();
+
+        $bestSellers = Product::latest()->when($q, function ($query) use ($q) {
+            $query->where('name', "LIKE", "%$q%");
+        })->where('hot_sell', 1)->get();
+
+        return view('home', [
+            'sliders' => $sliders,
+            'categories' => $categories,
+            'products' => $products,
+            'bestSellers' => $bestSellers,
+        ]);
     }
 }

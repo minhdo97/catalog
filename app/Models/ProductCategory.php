@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Encore\Admin\Traits\Resizable;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductCategory extends Model
 {
-    use Sluggable;
+    use Sluggable, Resizable;
 
     protected $table = 'product_categories';
 

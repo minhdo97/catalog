@@ -80,7 +80,7 @@ class SliderController extends Controller
     protected function grid()
     {
         $grid = new Grid(new Slider);
-
+        $grid->model()->latest();
         $grid->id('ID');
         $grid->title(trans('admin.title'));
         $grid->picture(trans('admin.picture'))->image();
