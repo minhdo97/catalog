@@ -10,4 +10,12 @@ class Slider extends Model
     use SoftDeletes;
 
     protected $table = 'sliders';
+    protected $appends = [
+        'src'
+    ];
+
+    public function getSrcAttribute($picture)
+    {
+        return imagePath($this->attributes['picture']);
+    }
 }

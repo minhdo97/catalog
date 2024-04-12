@@ -142,9 +142,9 @@ class ProductController extends Controller
         ];
 
         $form->switch('hot_sell', "Nổi bật")->states($states);
-        $form->textarea('desciption', 'desciption');
+        $form->textarea('description', 'description');
         $form->ckeditor('body', 'body');
-        $form->image('picture', trans('admin.picture'))->removable()->thumbnail('square', $width = 500, $height = 500);
+        $form->image('picture', trans('admin.picture'))->removable()->thumbnail('square', $width = 1500, $height = 1500);
 //        $form->multipleImage('pictures', trans('admin.pictures'));
         $form->select("product_category_id", "Loại sản phẩm")->options(ProductCategory::all()->pluck('name', 'id')->toArray())->required();
         $form->display(trans('admin.created_at'));

@@ -11,7 +11,9 @@ class ProductCategory extends Model
     use Sluggable, Resizable;
 
     protected $table = 'product_categories';
-
+    protected $appends = [
+        'src', 'title'
+    ];
     protected $withCount = ['products'];
 
     /**
@@ -31,5 +33,15 @@ class ProductCategory extends Model
     public function products()
     {
         return $this->hasMany(Product::class, 'product_category_id');
+    }
+
+    public function getSrcAttribute($picture)
+    {
+        return imagePath($this->thumbnail('square', 'picture'));
+    }
+
+    public function getTitleAttribute()
+    {
+        return $this->attributes['name'];
     }
 }

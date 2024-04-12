@@ -52,5 +52,6 @@ return [
     ],
     'general' => [
         'logo' => ['type' => 'image', 'uniqueName'],
+        'favicon' => ['type' => 'image', 'uniqueName'],
     ]
 ];

@@ -124,7 +124,7 @@ class SliderController extends Controller
 
         $form->display('ID');
         $form->text('title', trans('admin.title'))->required();
-        $form->image('picture', trans('admin.picture'))->required();
+        $form->image('picture', trans('admin.picture'))->removable()->required();
         $form->url('link', trans('admin.link'));
         $form->number('order', 'order')->default(0)->required();
         $form->display(trans('admin.created_at'));

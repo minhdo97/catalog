@@ -11,6 +11,10 @@ class Product extends Model
 {
     use SoftDeletes, Sluggable, Resizable;
 
+    protected $appends = [
+        'src','title'
+    ];
+
     protected $table = 'products';
 
     /**
@@ -42,5 +46,15 @@ class Product extends Model
     public function getPicturesAttribute($pictures)
     {
         return json_decode($pictures, true);
+    }
+
+    public function getSrcAttribute()
+    {
+        return imagePath($this->thumbnail('square', 'picture'));
+    }
+
+    public function getTitleAttribute()
+    {
+        return $this->attributes['name'];
     }
 }
