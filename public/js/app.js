@@ -2318,9 +2318,9 @@ var render = function render() {
       staticClass: "product_box"
     }, [_c("div", {
       staticClass: "card"
-    }, [_c("span", {
+    }, [product.hot_sell ? _c("span", {
       staticClass: "hot"
-    }, [_vm._v("HOT")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("HOT")]) : _vm._e(), _vm._v(" "), _c("div", {
       staticClass: "image-box",
       on: {
         click: function click($event) {
@@ -2442,7 +2442,9 @@ var render = function render() {
       staticClass: "product_box"
     }, [_c("div", {
       staticClass: "card"
-    }, [_c("div", {
+    }, [product.hot_sell ? _c("span", {
+      staticClass: "hot"
+    }, [_vm._v("HOT")]) : _vm._e(), _vm._v(" "), _c("div", {
       staticClass: "image-box",
       on: {
         click: function click($event) {

@@ -9,6 +9,7 @@
             <div class="col-6 col-md-4 col-xl-3 pbox" v-for="(product,imageIndex) in products" :key="imageIndex">
                 <div class="product_box">
                     <div class="card">
+                        <span v-if="product.hot_sell" class="hot">HOT</span>
                         <div class="image-box" @click="index = imageIndex">
                             <img class="w-100"
                                  :src="product.src"

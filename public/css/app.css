@@ -11130,6 +11130,7 @@ header a img {
   position: absolute;
   left: 8px;
   top: 8px;
+  z-index: 99999;
   font-weight: bold;
   font-size: 11px;
   padding: 2px 8px;
@@ -11215,5 +11216,20 @@ hr {
 
 .slick-next {
   right: 20px !important;
+}
+
+.image-box {
+  background: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100%;
+  cursor: pointer;
+}
+
+.image-box img {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 1/1;
 }
 

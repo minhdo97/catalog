@@ -13,7 +13,7 @@
                 <div class="item-sli" v-for="(product,imageIndex) in products" :key="imageIndex">
                     <div class="product_box">
                         <div class="card">
-                            <span class="hot">HOT</span>
+                            <span v-if="product.hot_sell" class="hot">HOT</span>
                             <div class="image-box" @click="index = imageIndex">
                                 <img class="w-100"
                                      :src="product.src"

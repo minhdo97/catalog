@@ -37,7 +37,7 @@ class ProductCategory extends Model
 
     public function getSrcAttribute($picture)
     {
-        return imagePath($this->thumbnail('square', 'picture'));
+        return imagePath($this->picture);
     }
 
     public function getTitleAttribute()

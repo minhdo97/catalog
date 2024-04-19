@@ -50,7 +50,8 @@ class Product extends Model
 
     public function getSrcAttribute()
     {
-        return imagePath($this->thumbnail('square', 'picture'));
+//        return imagePath($this->thumbnail('square', 'picture'));
+        return imagePath($this->picture);
     }
 
     public function getTitleAttribute()
