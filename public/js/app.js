@@ -2198,6 +2198,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2207,7 +2210,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     searchData: function searchData() {
       this.$bus.emit('search', this.keywords);
-    }
+    },
+    debounceInput: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function (e) {
+      //this.$store.dispatch('updateInput', e.target.value)
+      this.$bus.emit('search', this.keywords);
+    }, 500)
   }
 });
 
@@ -2512,17 +2519,10 @@ var render = function render() {
       value: _vm.keywords
     },
     on: {
-      keyup: [function ($event) {
-        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) return null;
-        return _vm.searchData();
-      }, function ($event) {
-        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
-        return _vm.searchData();
-      }],
-      input: function input($event) {
+      input: [function ($event) {
         if ($event.target.composing) return;
         _vm.keywords = $event.target.value;
-      }
+      }, _vm.debounceInput]
     }
   }), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm._m(1)])]);
 };

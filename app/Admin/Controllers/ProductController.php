@@ -142,7 +142,7 @@ class ProductController extends Controller
         ];
 
         $form->switch('hot_sell', "Nổi bật")->states($states);
-        $form->textarea('description', 'description');
+        $form->textarea('desciption', 'description');
         $form->ckeditor('body', 'body');
         $form->image('picture', trans('admin.picture'))->removable()->thumbnail('square', $width = 1500, $height = 1500);
 //        $form->multipleImage('pictures', trans('admin.pictures'));
